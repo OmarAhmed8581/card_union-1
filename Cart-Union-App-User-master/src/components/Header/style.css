@@ -1,0 +1,238 @@
+.header{
+    width: 100%;
+    height: 56px;
+    background: rgb(7, 31, 69);
+}
+.subHeader{
+    max-width: 1100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;   
+    align-items: center;
+}
+
+
+.logo{
+width: 137px;
+height: 100%;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-end;
+}
+.logo .logoimage{
+    width: 100%;
+    height: 56px;
+    margin-top: -30px;
+}
+.exploreText{ 
+    font-size: 10px;
+    font-style: italic; 
+}
+.plusText{ 
+    font-size: 10px; 
+    margin: 0 2px; 
+    text-transform: capitalize;
+    font-style: italic;
+    color: yellow;
+  }
+.logo .goldenStar{
+    width: 10px;
+    height: 10px;
+}
+
+
+
+.searchInputContainer {
+width: 560px;
+position: relative;
+background: #E8F5E9;
+height: 36px;
+border-radius: 1px;
+overflow: hidden;
+display: flex;
+border-radius: 20px;
+}
+.searchInput {
+width: 518px;
+border: 0;
+height: 36px;
+outline: none;
+box-sizing: border-box;
+padding: 0 10px;
+background: #E8F5E9;
+}
+.searchIconContainer {
+display: flex;
+flex: 1;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+}
+.rightMenu{
+display: flex;
+flex: 1;
+justify-content: flex-end;
+align-items: center;
+}
+.loginButton {
+display: block;
+width: 100px;
+height: 30px;
+background: #E8F5E9;
+text-align: center;
+line-height: 30px;
+color: #071F45;
+font-weight: 500;
+font-size: 16px;
+cursor: pointer;
+border-radius: 5px;
+}
+.more, .fullName{
+font-weight: bold;
+color: #E8F5E9;
+display: flex;
+align-items: center;
+margin: 0 20px;
+cursor: pointer;
+}
+.cart {
+font-weight: bold;
+color: #E8F5E9;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 20px
+}
+
+.authContainer{
+color: #212121;
+margin: 0 auto;
+border-radius: 2px;
+height: 528px;
+max-width: 750px;
+min-width: 650px;
+}
+.row{
+width: 100%;
+display: flex;
+flex-flow: row wrap;
+height: 528px;
+max-width: 750px;
+min-width: 650px;
+}
+
+.leftspace{
+width: 40%;
+height: 100%;
+color: #fff;
+letter-spacing: 1px;
+background-image: url('../../images/login-image.png');
+background-color: #071F45;
+background-repeat: no-repeat;
+background-position: center 85%;
+padding: 40px 33px;
+box-sizing: border-box;
+}
+
+.rightspace{
+display: flex;
+flex: 1;
+flex-direction: column;
+align-items: center;
+}
+.loginInputContainer{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin: 40px 0;
+  }
+
+
+  /* Search bar css */
+  
+::selection{
+    color: #fff;
+    background: #664AFF;
+  }
+  
+  .wrapper{
+    min-width: 600px;
+    margin: 150px auto;
+  }
+  
+  .wrapper .search-input{
+    background: #fff;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+  }
+  
+  .search-input input{
+    height: 55px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  .search-input.active input{
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .search-input .autocom-box{
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  .search-input.active .autocom-box {
+    /* padding: 10px 8px; */
+    opacity: 1;
+    pointer-events: auto;
+    position: absolute;
+    top: 55px;
+    height: 200px;
+    background: white;
+    width: 100%;
+    z-index: 11;
+    border-radius: 0px 0px 12px 12px;
+    overflow: hidden;
+}
+  .autocom-box li{
+    list-style: none;
+    padding: 10px 20px;
+    display: none;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-input.active .autocom-box li{
+    display: block;
+  }
+  .autocom-box li:hover{
+    background: #efefef;
+  }
+  
+  .search-input .icon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 20px;
+    color: #644bff;
+    cursor: pointer;
+  }

@@ -1,0 +1,149 @@
+.main_container{
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    background-color: #E8F5E9;
+}
+
+.sub_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.sub_container_left{
+    padding-left: 10px;
+    width: 50%;
+    padding-bottom: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.tag_line{
+    font-size: 3rem;
+    color: #071F45;
+    margin: 0;
+}
+.description{
+    font-size: medium;
+    color: #071F45;
+    text-align: left;
+    font-size: 20px;
+}
+.book_now_button{
+    background-color: #071F45;
+    color: white;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+.book_now_button:hover{
+    transition: ease-in-out;
+    transition-duration: 0.5s;
+    background-color: white;
+    color: #071F45;
+}
+
+.sub_container_right{
+    width: 50%;
+    height: 400px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+    display: flex;
+    align-items: center;
+}
+.bannerImage{
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+}
+.main_container2{
+    width: 100%;
+    margin-top: 50px;
+    background-color: #E8F5E9;
+}
+.services{
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+}
+.service1{
+    width: 30%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    border-radius: 3px;
+}
+.together_icon{
+    font-size: 40px;
+    color: #071F45;
+    width: 100%;
+}
+.together_heading{
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    color: #071F45;
+}
+.together_para{
+    text-align:center;
+    color: #071F45;
+}
+.quality{
+    margin-top: 10px;
+    padding: 10px;
+}
+.quality_description{
+    color: #071F45;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+.divider{
+    width: 100%;
+    margin-bottom: 8px;
+}
+.footer{
+    width: 100%;
+    background-color: #071F45;
+    color: white;
+    padding-bottom: 16px;
+}
+.items{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding-top: 16px;
+    justify-content: space-around;
+}
+
+.item_sub_list{
+    list-style: none;
+}
+.item_sub_list_items{
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+.item_sub_list_items:hover{
+    color: black;
+}
+.copyright{
+    font-size: 13px;
+    text-align: center;
+}
+
+.social_icon{
+    color: white;
+}
+.footer_link{
+    text-decoration: none;
+    color: white;
+}
