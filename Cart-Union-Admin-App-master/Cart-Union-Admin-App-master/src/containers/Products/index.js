@@ -129,6 +129,9 @@ export const Products = (props) => {
             <th>Price</th>
             <th>Quantity</th>
             <th>Category</th>
+            <th>Total Review</th>
+            <th>Total Rating</th>
+            <th>Rating</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -144,6 +147,13 @@ export const Products = (props) => {
                       <td>{product.price}</td>
                       <td>{product.quantity}</td>
                       <td>{product.category.name}</td>
+                      <td>{product.totalreview}</td>
+                      <td>{product.totalrating}</td>
+                      {product.ratings[0] && product.ratings[0].star ? (
+                        product.ratings[0].star.toFixed(1)
+                      ) : (
+                        0
+                      )}
                       <td>{product.productStatus}</td>
 
                       <td style={{ display: "flex" }}>
@@ -203,6 +213,13 @@ export const Products = (props) => {
                       <td>{product.price}</td>
                       <td>{product.quantity}</td>
                       <td>{product.category.name}</td>
+                      <td>{product.totalreview}</td>
+                      <td>{product.totalrating}</td>
+                      {product.ratings[0] && product.ratings[0].star ? (
+                        product.ratings[0].star.toFixed(1)
+                      ) : (
+                        0
+                      )}
                       <td>{product.productStatus}</td>
                       <td>
                         <button

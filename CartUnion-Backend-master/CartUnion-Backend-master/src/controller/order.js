@@ -37,11 +37,41 @@ exports.addOrder = (req, res) => {
   });
 };
 
+exports.updaterefundOrders = async (req, res) => {
+  console.log("updaterefundOrders")
+  const itemId = req.body.itemid
+  const refund = req.body.refund
+  const orderId = req.body.orderid
+  try {
+    const order = await Order.findById(orderId);
+    if (!order) {
+      console.log('Order not found');
+      res.status(200).json('Order not found');
+      return;
+    }
+
+    const itemToUpdate = order.items.find(item => item._id.toString() === itemId);
+    if (!itemToUpdate) {
+      console.log('Item not found in the order');
+      res.status(200).json('Item not found in the order');
+      return;
+    }
+
+    itemToUpdate.returnItem = refund;
+    await order.save();
+    console.log('Refund status updated successfully');
+    res.status(200).json('Refund status updated successfully');
+  } catch (error) {
+    console.error('Error updating refund status:', error);
+    res.status(200).json('Error updating refund status:', error);
+  }
+
+};
 exports.getOrders = (req, res) => {
   console.log("getOrders")
   Order.find({ user: req.user._id })
     .select("_id paymentStatus paymentType orderStatus items")
-    .populate("items.productId", "_id name productPictures sellerId")
+    .populate("items.productId", "_id name productPictures sellerId returnItem")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {
@@ -55,7 +85,7 @@ exports.getAllOrders = (req, res) => {
   console.log("getAllOrders");
   Order.find()
     .select("_id user paymentStatus paymentType orderStatus items") // Select specific fields to retrieve
-    .populate("items.productId", "_id name productPictures sellerId")
+    .populate("items.productId", "_id name productPictures sellerId returnItem")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {
@@ -67,7 +97,7 @@ exports.getAllOrders = (req, res) => {
 exports.getOrders1 = (req, res) => {
   Order.find({ user: req.user._id })
     .select("_id paymentStatus paymentType orderStatus items")
-    .populate("items.productId", "_id name productPictures sellerId")
+    .populate("items.productId", "_id name productPictures sellerId returnItem")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {

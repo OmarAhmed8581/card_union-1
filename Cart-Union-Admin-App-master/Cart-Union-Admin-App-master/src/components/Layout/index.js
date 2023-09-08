@@ -30,7 +30,7 @@ const Layout = (props) => {
                   <NavLink to={`/Sales`}>Sales</NavLink>
                 </li>
                 <li>
-                  <NavLink to={`/Return`}>Return</NavLink>
+                  <NavLink to={`/Refund`}>Refunds</NavLink>
                 </li>
                 <li>
                   <NavLink to={`/Statistical`}>Statistical Analyser</NavLink>

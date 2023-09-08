@@ -145,6 +145,15 @@ export const ProductDetailsPage = (props) => {
                   marginLeft: "5px",
                 }}
                 icon={<AiFillThunderbolt />}
+                onClick={() => {
+                  const { _id, name, price, createdBy } =
+                    product.productDetails;
+                  const img = product.productDetails.productPictures[0].img;
+                  dispatch(
+                    addToCart({ _id, name, price, img, sellerId: createdBy })
+                  );
+                  history("/checkout");
+                }}
               />
             </div>
           </div>

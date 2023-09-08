@@ -4,8 +4,6 @@ const slugify = require("slugify");
 const Category = require("../models/category");
 
 exports.createProduct = (req, res) => {
-  // res.status(200).json({file:req.files,body:req.body})
-
   const {
     name,
     price,
@@ -196,7 +194,7 @@ exports.deleteProductById = (req, res) => {
 exports.getProducts = async (req, res) => {
   const products = await Product.find({ createdBy: req.user._id })
     .select(
-      "_id createdBy name price quantity slug description productPictures category productStatus"
+      "_id createdBy name price quantity slug description productPictures category productStatus totalrating totalreview ratings"
     )
     .populate({ path: "category", select: "_id name" })
     // .populate({ path: "products", select: "createdBy" })
@@ -209,7 +207,7 @@ exports.getProducts = async (req, res) => {
 exports.getAllProducts = (req, res) => {
   console.log("getAllProducts");
   Product.find()
-    .select("_id createdBy name price quantity slug description productPictures category productStatus") // Select specific fields to retrieve
+    .select("_id createdBy name price quantity slug description productPictures category productStatus totalrating totalreview ratings") // Select specific fields to retrieve
     .exec((error, products) => {
       if (error) return res.status(400).json({ error });
       if (products) {

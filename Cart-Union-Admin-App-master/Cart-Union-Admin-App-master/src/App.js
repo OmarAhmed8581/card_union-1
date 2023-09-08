@@ -21,6 +21,7 @@ import { Category } from "./containers/Category";
 import { Sales } from "./containers/Sales";
 import { NewPage } from "./containers/NewPage";
 import { Statistical } from "./containers/Statistical";
+import { Refunds } from "./containers/Refund";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,10 @@ function App() {
         </Route>
         <Route path="/sales" element={<PrivateRoute />}>
           <Route path="/sales" element={<Sales />}></Route>
+        </Route>
+
+        <Route path="/Refund" element={<PrivateRoute />}>
+          <Route path="/Refund" element={<Refunds />}></Route>
         </Route>
         <Route path="/Statistical" element={<PrivateRoute />}>
           <Route path="/Statistical" element={<Statistical />}></Route>

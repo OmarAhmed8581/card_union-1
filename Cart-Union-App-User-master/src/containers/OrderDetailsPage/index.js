@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addReview, getOrder, rateProduct } from "../../actions";
+import { addReview, getOrder, rateProduct, refundProduct } from "../../actions";
 import Layout from "../../components/Layout";
 import Card from "../../components/UI/Card";
 import Price from "../../components/UI/Price";
@@ -19,10 +19,11 @@ const OrderDetailsPage = (props) => {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.user.orderDetails);
   const product = useSelector((state) => state.product);
-  // console.log('testing')
+  console.log('testing')
   console.log(orderDetails)
 
   var item  = orderDetails['items']
+  var orderid  = orderDetails['_id']
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
   const isLogin = localStorage.getItem("token")
@@ -63,6 +64,11 @@ const OrderDetailsPage = (props) => {
       return `${month[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
     }
   };
+
+  const onReturn = (orderid , itemid)=>{
+    alert("Refund Product")
+    dispatch(refundProduct(orderid, itemid,document.getElementById(itemid+"_return").value));
+  }
   const onSubmit = () => {
     // Dispatch the rateProduct and addReview actions with the orderId, rating, and review
     
@@ -154,11 +160,42 @@ const OrderDetailsPage = (props) => {
                     ></div>
                     <div className="orderInfo">
                       <div className="status">{status.type}</div>
-                      <div className="date">{formatDate(status.date)}</div>
+                      <div className="date" id={`${item._id}_date`}>{formatDate(status.date)}</div>
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
+            
+            <div>
+              <div className="delTitle">Return/refund</div>
+              <select id={`${item._id}_return`} style={{color: "#5D6D7E",width: "100%",
+                height: "36%",
+                border: "none",
+                background: "#ECF0F1fc"}}>
+                <option value="0">please select</option>
+                <option value="Item not received">Item not received</option>
+                <option value="Item received damage">Item received damage</option>
+              
+              </select>
+
+              <button
+              class="form-control-sm"
+              style={{
+                cursor: "pointer",
+                width: "30%",
+                margin: "5px",
+                fontWeight: "bold",
+                backgroundColor: "rgb(7, 31, 69)",
+                fontSize: "10px",
+                borderRadius: "5px",
+                color: "whitesmoke",
+              }}
+              onClick={() => onReturn( orderid, item._id)}
+            >
+              Return
+            </button>
+
             </div>
             <div style={{ fontWeight: "500", fontSize: 14 }}>
               {orderDetails.orderStatus[3].isCompleted &&
@@ -170,7 +207,7 @@ const OrderDetailsPage = (props) => {
         <Card style={{ margin: "10px 0" }}>
           <div
             className="ratingForm"
-            style={{ display: "flex", flexDirection: "column" }}
+            style={{ display: "flex", flexDirection: "column",padding:"1%" }}
           >
             <ReactStars
               count={5}

@@ -106,45 +106,40 @@ export const getproductmenu = ()  => async (req, res) => {
   }
 };
 
-// export const getproductmenu= async (req, res) => {
-//   try {
-//     const response = await axios.put(`http://localhost:2000/api/product/getAllProductsdatamenu`);
-    
-//     if (response.status === 200) {
-//       console.log("getAllProductsdatamenu");
-//       console.log(response.data);
-
-//       // Return the fetched data in the response
-//       res.status(200).json({ data: response.data });
-//     } else {
-//       console.log("getAllProductsdatamenu Fail");
-//       res.status(400).json({ error: "Failed" });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
-
-
-
 
 export const rateProduct = (prodId, star , review) => async (dispatch) => {
-    try {
-      const response = await axios.put(`/product/${prodId}`, { star , prodId , review });
-      console.log(productConstants.RATE_PRODUCT_SUCCESS)
-      dispatch({
-        type: productConstants.RATE_PRODUCT_SUCCESS,
-        payload: response.data.message,
-      });
-      
-    } catch (error) {
-      dispatch({
-        type: productConstants.RATE_PRODUCT_FAILURE,
-        payload: error,
-      });
-    }
-  };
+  try {
+    const response = await axios.put(`/product/${prodId}`, { star , prodId , review });
+    console.log(productConstants.RATE_PRODUCT_SUCCESS)
+    dispatch({
+      type: productConstants.RATE_PRODUCT_SUCCESS,
+      payload: response.data.message,
+    });
+    
+  } catch (error) {
+    dispatch({
+      type: productConstants.RATE_PRODUCT_FAILURE,
+      payload: error,
+    });
+  }
+};
+
+export const refundProduct = (orderid, itemid ,  refund) => async (dispatch) => {
+  try {
+    const response = await axios.put(`/order/${orderid}`, {orderid ,  itemid , refund });
+    console.log(productConstants.REFUND_PRODUCT_SUCCESS)
+    dispatch({
+      type: productConstants.REFUND_PRODUCT_SUCCESS,
+      payload: response.data.message,
+    });
+    
+  } catch (error) {
+    dispatch({
+      type: productConstants.REFUND_PRODUCT_FAILURE,
+      payload: error,
+    });
+  }
+};
   
   // Action creator for adding a review to a product
   export const addReview = (prodId, review) => async (dispatch) => {
