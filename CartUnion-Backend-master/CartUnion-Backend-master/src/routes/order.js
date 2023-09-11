@@ -3,7 +3,7 @@ const { addOrder, getOrders, getOrder , getOrders1 , getAllOrders,updaterefundOr
 const router = require("express").Router();
 
 router.post("/addOrder", requireSignin, userMiddleware, addOrder);
-router.post("/getOrders", requireSignin, userMiddleware, getAllOrders);
+router.get("/getOrders", getAllOrders);
 router.post("/order/getAllOrders", getAllOrders);
 router.put("/order/:orderID", updaterefundOrders);
 router.get("/getOrders1", requireSignin, userMiddleware, getOrders1);
