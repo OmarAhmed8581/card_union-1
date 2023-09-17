@@ -8,16 +8,62 @@ import "./style.css";
  **/
 
 const CartItem = (props) => {
-  const [qty, setQty] = useState(props.cartItem.qty);
-  const { _id, name, price, img , discountOnQuantity ,discountPercentage} = props.cartItem;
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const buynowValue = urlParams.get('name');
+
+  // alert(buynowValue)
+
+
+
+
+
+  let { _id, name, price, img , discountOnQuantity ,discountPercentage} = props.cartItem;
+
+  let initialQty;
+  let initialDiscountOnQuantity;
+
+  if (buynowValue === 'quotation') {
+    initialQty = 1;
+    discountOnQuantity = 1;
+  } else {
+    initialQty = props.cartItem.discountOnQuantity;
+    discountOnQuantity = props.cartItem.discountOnQuantity;
+  }
+
+  const [qty, setQty] = useState(initialQty);
+  
+  
+
+
+  // setQty(discountOnQuantity)
+  // alert(qty)
+  console.log("qty")
+  console.log(qty)
   const onQuantityIncrement = () => {
-    setQty(qty + 1);
-    props.onQuantityInc(_id, qty + 1);
+
+
+    if(buynowValue!='quotation'){
+
+      
+      if(discountOnQuantity<=qty+1){  
+        // console.log(qty+1)
+        // console.log(discountOnQuantity)   
+        setQty(qty + 1);
+        props.onQuantityInc(_id, qty + 1);
+      }
+    }
   };
   const onQuantityDecrement = () => {
-    if (qty <= 1) return;
-    setQty(qty - 1);
-    props.onQuantityDec(_id, qty - 1);
+    if(buynowValue!='quotation'){
+      if(discountOnQuantity<=qty-1){
+        if (qty <= 1) return;
+        setQty(qty - 1);
+        props.onQuantityDec(_id, qty - 1);
+      }
+    }
+   
   };
 
   return (

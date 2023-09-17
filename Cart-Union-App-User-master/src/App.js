@@ -14,7 +14,6 @@ import OrderDetailsPage from "./containers/OrderDetailsPage";
 function App() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  
   useEffect(() => {
     if (!auth.authenticate) {
       dispatch(isUserLoggedIn());

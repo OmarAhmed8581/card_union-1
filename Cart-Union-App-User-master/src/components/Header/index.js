@@ -110,8 +110,6 @@ const Header = (props) => {
       const icon = searchWrapper.querySelector(".icon");
       let linkTag = searchWrapper.querySelector("a");
       let webLink;
-
-
       let selectData = element.textContent;
       inputBox.value = selectData;
       icon.onclick = ()=>{

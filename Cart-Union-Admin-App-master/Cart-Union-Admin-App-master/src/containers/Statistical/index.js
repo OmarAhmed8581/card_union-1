@@ -151,7 +151,7 @@ export const Statistical = () => {
       {
         label: 'Total Sales',
         data:  Object.values(total_sales),
-        backgroundColor: document.body.className === 'dark-theme' ? '#2e2d2d' : '#dcdedf',
+        backgroundColor: document.body.className === 'dark-theme' ? '#3e567b' : '#3e567b',
         borderWidth: 0,
         barPercentage: 0.6,
         borderRadius: 3,
@@ -166,7 +166,7 @@ export const Statistical = () => {
       {
         label: 'Total Product',
         data: Object.values(product_dict),
-        backgroundColor: document.body.className === 'dark-theme' ? '#2e2d2d' : '#dcdedf',
+        backgroundColor: document.body.className === 'dark-theme' ? '#3e567b' : '#3e567b',
         borderWidth: 0,
         barPercentage: 0.6,
         borderRadius: 3,
@@ -182,7 +182,7 @@ export const Statistical = () => {
       {
         label: 'Total Sellar',
         data: Object.values(user_dict),
-        backgroundColor: document.body.className === 'dark-theme' ? '#2e2d2d' : '#dcdedf',
+        backgroundColor: document.body.className === 'dark-theme' ? '#3e567b' : '#3e567b',
         borderWidth: 0,
         barPercentage: 0.6,
         borderRadius: 3,
@@ -260,10 +260,10 @@ export const Statistical = () => {
             </Row>
 
             <div className='card text-center'>
-              <div className='card-header' style={{ color: `#0000` }}>
+              <div className='card-header' style={{ color: `#ffffff`,background:`#071f45` }}>
                 <div className='past7daysHead'>
                   <div className='mx-2'>
-                    <h5 className='mb-0 ttlPastSevenDayHead' style={{color:'black'}}>Number of Sales</h5>
+                    <h5 className='mb-0 ttlPastSevenDayHead' style={{color:'#ffffff'}}>Number of Sales</h5>
                   </div>
                 </div>
               </div>
@@ -273,10 +273,10 @@ export const Statistical = () => {
             </div>
             {auth.user.email == "muhammadhamza11@gmail.com" && (
               <div className='card text-center' style={{marginTop:'2%'}}>
-              <div className='card-header' style={{ color: `#0000` }}>
+              <div className='card-header' style={{ color: `#ffffff`,background:`#071f45`}}>
                 <div className='past7daysHead'>
                   <div className='mx-2'>
-                    <h5 className='mb-0 ttlPastSevenDayHead' style={{color:'black'}}>Number of Seller</h5>
+                    <h5 className='mb-0 ttlPastSevenDayHead' style={{color:'#ffffff'}}>Number of Seller</h5>
                   </div>
                 </div>
               </div>
@@ -291,10 +291,10 @@ export const Statistical = () => {
          
 
           <div className='card text-center' style={{marginTop:'2%'}}>
-            <div className='card-header' style={{ color: `#0000` }}>
+            <div className='card-header' style={{  color: `#ffffff`,background:`#071f45` }}>
               <div className='past7daysHead'>
                 <div className='mx-2'>
-                  <h5 className='mb-0 ttlPastSevenDayHead' style={{color:'black'}}>Number of Product</h5>
+                  <h5 className='mb-0 ttlPastSevenDayHead' style={{color:'#ffffff'}}>Number of Product</h5>
                 </div>
               </div>
             </div>

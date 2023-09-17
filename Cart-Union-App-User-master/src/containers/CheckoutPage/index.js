@@ -108,6 +108,8 @@ export const CheckoutPage = (props) => {
   const [paymentOption, setPaymentOption] = useState(false);
   const [confirmOrder, setConfirmOrder] = useState(false);
   const cart = useSelector((state) => state.cart);
+  console.log('cart')
+  console.log(cart)
   const dispatch = useDispatch();
 
   const onAddressSubmit = (addr) => {
@@ -146,6 +148,7 @@ export const CheckoutPage = (props) => {
   };
 
   const onConfirmOrder = () => {
+    // console.log(cart.cartItems)
     const totalAmount = Object.keys(cart.cartItems).reduce(
       (totalPrice, key) => {
         const { price, qty ,discountOnQuantity} = cart.cartItems[key];
@@ -170,7 +173,7 @@ export const CheckoutPage = (props) => {
       paymentType: "cod",
     };
 
-    console.log(payload);
+    // console.log(payload);
     dispatch(addOrder(payload));
     setConfirmOrder(true);
 

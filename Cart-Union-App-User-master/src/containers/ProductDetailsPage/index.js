@@ -152,7 +152,26 @@ export const ProductDetailsPage = (props) => {
                   dispatch(
                     addToCart({ _id, name, price, img, sellerId: createdBy })
                   );
-                  history("/checkout");
+                  history("/checkout?name=buynow");
+                }}
+              />
+
+              <MaterialButton
+                title="Quotation"
+                bgColor="#ee8d5e"
+                textColor="#ffffff"
+                style={{
+                  marginLeft: "5px",
+                }}
+                icon={<AiFillThunderbolt />}
+                onClick={() => {
+                  const { _id, name, price, createdBy } =
+                    product.productDetails;
+                  const img = product.productDetails.productPictures[0].img;
+                  dispatch(
+                    addToCart({ _id, name, price, img, sellerId: createdBy })
+                  );
+                  history("/checkout?name=quotation");
                 }}
               />
             </div>

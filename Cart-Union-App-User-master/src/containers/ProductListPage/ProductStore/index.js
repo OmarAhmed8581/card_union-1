@@ -122,22 +122,12 @@ export const ProductStore = (props) => {
           <Card
             key={key}
             headerLeft={`${params.slug} ITEMS under ${priceRange[key]}`}
-            headerRight={
-              <MaterialButton
-                title={"VIEW ALL"}
-                style={{
-                  width: "96px",
-                }}
-                bgColor="#071F45"
-                fontSize="12px"
-              />
-            }
             style={{
               width: "calc(100% - 40px)",
               margin: "20px",
             }}
-          >
-            <div style={{ display: "flex" }}>
+            >
+            <div style={{ display: "flex" ,maxWidth: "100%",overflow: "auto"  }} id="style-2">
 
               {sortedProducts.map((product) => {
                 if (product.productStatus == "active") {
@@ -152,12 +142,21 @@ export const ProductStore = (props) => {
                       }}
                     >
                       <div className="productImgContainer">
+                      {product.productPictures[0].img.endsWith(".mp4") ? (
+
+                        <video width="200" height="150" autoPlay>
+                          <source src={generatePublicUrl(product.productPictures[0].img)} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      ): (
                         <img
-                          src={generatePublicUrl(
-                            product.productPictures[0].img
-                          )}
-                          alt=""
-                        />
+                        src={generatePublicUrl(
+                          product.productPictures[0].img
+                        )}
+                        alt=""
+                      />
+                      )}
+                       
                       </div>
                       <div className="productInfo">
                         <div style={{ margin: "5px 0" }}>{product.name}</div>

@@ -108,6 +108,7 @@ const OrderDetailsPage = (props) => {
               <div className="delPhoneNumber">
                 Phone number {orderDetails.address.mobileNumber}
               </div>
+              <div className="delAddress"><span style={{fontWeight:'bold'}}>Total Amount:</span> {orderDetails.totalAmount}</div>
               <div className="delTitle" style={{marginTop:'10px'}}>Estimated Delivery</div>
               <div className="delName">10-20 Days</div>
               {isLogin && (
@@ -166,37 +167,39 @@ const OrderDetailsPage = (props) => {
                 ))}
               </div>
             </div>
-            
-            <div>
-              <div className="delTitle">Return/refund</div>
-              <select id={`${item._id}_return`} style={{color: "#5D6D7E",width: "100%",
-                height: "36%",
-                border: "none",
-                background: "#ECF0F1fc"}}>
-                <option value="0">please select</option>
-                <option value="Item not received">Item not received</option>
-                <option value="Item received damage">Item received damage</option>
-              
-              </select>
 
-              <button
-              class="form-control-sm"
-              style={{
-                cursor: "pointer",
-                width: "30%",
-                margin: "5px",
-                fontWeight: "bold",
-                backgroundColor: "rgb(7, 31, 69)",
-                fontSize: "10px",
-                borderRadius: "5px",
-                color: "whitesmoke",
-              }}
-              onClick={() => onReturn( orderid, item._id)}
-            >
-              Return
-            </button>
+            {(orderDetails.orderStatus[3].isCompleted) && (
+                <div>
+                  <div className="delTitle">Return/refund</div>
+                  <select id={`${item._id}_return`} style={{color: "#5D6D7E",width: "100%",
+                    height: "36%",
+                    border: "none",
+                    background: "#ECF0F1fc"}}>
+                    <option value="0">please select</option>
+                    <option value="Item not received">Item not received</option>
+                    <option value="Item received damage">Item received damage</option>
+                  
+                  </select>
 
-            </div>
+                  <button
+                  class="form-control-sm"
+                  style={{
+                    cursor: "pointer",
+                    width: "30%",
+                    margin: "5px",
+                    fontWeight: "bold",
+                    backgroundColor: "rgb(7, 31, 69)",
+                    fontSize: "10px",
+                    borderRadius: "5px",
+                    color: "whitesmoke",
+                  }}
+                  onClick={() => onReturn( orderid, item._id)}
+                >
+                  Return
+                </button>
+
+              </div>
+            )}
             <div style={{ fontWeight: "500", fontSize: 14 }}>
               {orderDetails.orderStatus[3].isCompleted &&
                 `Delivered on ${formatDate2(orderDetails.orderStatus[3].date)}`}
@@ -204,41 +207,44 @@ const OrderDetailsPage = (props) => {
           </Card>
         ))}
         {/* Rating and review form */}
-        <Card style={{ margin: "10px 0" }}>
-          <div
-            className="ratingForm"
-            style={{ display: "flex", flexDirection: "column",padding:"1%" }}
-          >
-            <ReactStars
-              count={5}
-              value={rating}
-              onChange={(newRating) => setRating(newRating)}
-              size={24}
-              activeColor="#ffd700"
-            />
-            <textarea
-              placeholder="Write a review..."
-              value={review}
-              onChange={(e) => setReview(e.target.value)}
-            />
-            <button
-              class="form-control-sm"
-              style={{
-                cursor: "pointer",
-                width: "5%",
-                margin: "5px",
-                fontWeight: "bold",
-                backgroundColor: "rgb(7, 31, 69)",
-                fontSize: "10px",
-                borderRadius: "5px",
-                color: "whitesmoke",
-              }}
-              onClick={onSubmit}
+
+        {(orderDetails.orderStatus[3].isCompleted) && (
+          <Card style={{ margin: "10px 0" }}>
+            <div
+              className="ratingForm"
+              style={{ display: "flex", flexDirection: "column",padding:"1%" }}
             >
-              Submit
-            </button>
-          </div>
-        </Card>
+              <ReactStars
+                count={5}
+                value={rating}
+                onChange={(newRating) => setRating(newRating)}
+                size={24}
+                activeColor="#ffd700"
+              />
+              <textarea
+                placeholder="Write a review..."
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
+              />
+              <button
+                class="form-control-sm"
+                style={{
+                  cursor: "pointer",
+                  width: "5%",
+                  margin: "5px",
+                  fontWeight: "bold",
+                  backgroundColor: "rgb(7, 31, 69)",
+                  fontSize: "10px",
+                  borderRadius: "5px",
+                  color: "whitesmoke",
+                }}
+                onClick={onSubmit}
+              >
+                Submit
+              </button>
+            </div>
+          </Card>
+        )}
       </div>
     </Layout>
   );

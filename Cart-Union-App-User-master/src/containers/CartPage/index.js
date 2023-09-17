@@ -62,7 +62,6 @@ export const CartPage = (props) => {
     );
   }
 
-
   return (
     <Layout>
       <div className="cartContainer" style={{ alignItems: "flex-start" }}>
@@ -100,10 +99,12 @@ export const CartPage = (props) => {
             </div>
           </div>
         </Card>
+
         <PriceDetails
           totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
             return qty + cart.cartItems[key].qty;
           }, 0)}
+
           totalPrice={Object.keys(cart.cartItems).reduce((totalPrice, key) => {
             const { price, qty ,discountOnQuantity} = cart.cartItems[key];
             return qty >= discountOnQuantity ? totalPrice + price*qty-(price*qty)*discountOnQuantity/100 : totalPrice + price * qty 
