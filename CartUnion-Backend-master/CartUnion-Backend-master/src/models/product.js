@@ -53,6 +53,9 @@ const productSchema = new mongoose.Schema(
     },
     review: [{
       reviews: String,
+      username: String,
+      star: Number,
+      productPictures: [{ img: { type: String } }],
       postedby: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     }],
     category: {

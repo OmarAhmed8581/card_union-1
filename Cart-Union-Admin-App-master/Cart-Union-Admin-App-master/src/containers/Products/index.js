@@ -56,6 +56,7 @@ export const Products = (props) => {
     form.append("category", categoryId);
     form.append("discountOnQuantity", discountOnQuantity);
     form.append("discountPercentage", discountPercentage);
+    console.log(productPictures)
     for (let pic of productPictures) {
       form.append("productPicture", pic);
     }
@@ -68,11 +69,9 @@ export const Products = (props) => {
     setProductPictures([]);
     setDiscountOnQuantity("")
     setDiscountPercentage("")
-
     setShow(false);
   };
   const handleShow = () => setShow(true);
-
   const createCategoryList = (categories, options = []) => {
     for (let category of categories) {
       options.push({

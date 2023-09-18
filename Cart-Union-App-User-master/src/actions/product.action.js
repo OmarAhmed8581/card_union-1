@@ -107,9 +107,22 @@ export const getproductmenu = ()  => async (req, res) => {
 };
 
 
-export const rateProduct = (prodId, star , review) => async (dispatch) => {
+export const rateProduct = (prodId, star , review , username,productPicture) => async (dispatch) => {
   try {
-    const response = await axios.put(`/product/${prodId}`, { star , prodId , review });
+    // console.log("Sending data to server:", { star, prodId, review, username, reviewimages });
+    const formData = new FormData();
+    formData.append("star", star);
+    formData.append("prodId", prodId);
+    formData.append("review", review);
+    formData.append("username", username);
+
+    // Append each image file to the formData
+    for (const imageFile of productPicture) {
+      formData.append("productPicture", imageFile);
+    }
+
+
+    const response = await axios.put(`/product/${prodId}`, formData);
     console.log(productConstants.RATE_PRODUCT_SUCCESS)
     dispatch({
       type: productConstants.RATE_PRODUCT_SUCCESS,
@@ -142,9 +155,9 @@ export const refundProduct = (orderid, itemid ,  refund) => async (dispatch) => 
 };
   
   // Action creator for adding a review to a product
-  export const addReview = (prodId, review) => async (dispatch) => {
+  export const addReview = (prodId, review , username , star ) => async (dispatch) => {
     try {
-      const response = await axios.post(`/products/${prodId}/review`, { review ,prodId});
+      const response = await axios.post(`/products/${prodId}/review`, { review ,prodId , username , star  });
   
       dispatch({
         type: productConstants.ADD_REVIEW_SUCCESS,

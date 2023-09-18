@@ -277,12 +277,12 @@ exports.updateProductStatus = (req, res) => {
 
 exports.rating = async (req, res) => {
   const { _id } = req.user;
-  const { star, prodId , review } = req.body;
+  const { star, prodId , review,username, } = req.body;
   try {
     console.log('req.body')
     console.log(req.body)
     const product = await Product.findById(prodId);
-   
+    // return res.status(404).json({ error: req.body });
    
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
@@ -328,16 +328,24 @@ exports.rating = async (req, res) => {
         const newTotalreview = product.totalreview + 1;
         product.totalreview = newTotalreview;
 
+        let productPictures = [];
+
+        if (req.files.length > 0) {
+          productPictures = req.files.map((file) => {
+            return { img: file.filename };
+          });
+        }
+        // return res.status(500).json({ error: productPictures});
         // Save the updated product document
         const updatedProduct = await product.save();
-
-
-        // return res.status(500).json({ error: "testing" });
         const addReview = await Product.findByIdAndUpdate(
           prodId,
           {
             $push: {
               review: {
+                username: username,
+                star:star,
+                productPictures:productPictures,
                 reviews: review,
                 postedBy: _id,
               },
@@ -400,7 +408,7 @@ exports.rating = async (req, res) => {
           return res.json({ message: "Product rating successfully" });
         } catch (error1) {
           console.error(error1);
-        return res.status(500).json({ error: error1 });
+        return res.status(500).json({ error:  "test2" });
         }
       }
     }
@@ -410,7 +418,7 @@ exports.rating = async (req, res) => {
   
   } catch (error1) {
     console.error(error1);
-    return res.status(500).json({ error: error1 });
+    return res.status(500).json({ error: "test1" });
   }
 };
 

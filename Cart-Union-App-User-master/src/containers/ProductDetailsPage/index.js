@@ -27,6 +27,11 @@ export const ProductDetailsPage = (props) => {
   const history = useNavigate();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
+
+  console.log("testing product")
+  console.log(product['productDetails']['review'])
+  var Review = product['productDetails']['review']
+  console.log(Review)
   const isLogin = localStorage.getItem("token")
 
   let params = useParams();
@@ -274,7 +279,115 @@ export const ProductDetailsPage = (props) => {
                 </span>
               </p>
             </div>
-            {isLogin && (
+            <span
+                  style={{
+                    width: "100px",
+                    fontSize: "12px",
+                    color: "#878787",
+                    fontWeight: "600",
+                    marginRight: "20px",
+                  }}
+                >
+                  Reviews
+             </span>
+
+              <div>
+                
+                <h2>Product Reviews</h2>
+                <div style={{ height: "300px", overflow: "hidden" }}>
+                    <div
+                      style={{
+                        height: "100%",
+                        overflowY: "scroll",
+                        marginRight: "-17px", // Adjust for the scrollbar width
+                        paddingRight: "17px", // Adjust for the scrollbar width
+                      }}
+                    >
+                      {Review.map((review) => (
+                        <div class="testimonial-box-container" key={review._id}>
+                          <div class="testimonial-box">
+                            <div class="box-top">
+                              <div class="profile">
+                                <div class="profile-img">
+                                  <img
+                                    src="https://cdn-icons-png.flaticon.com/512/4143/4143099.png"
+                                    alt="User"
+                                  />
+                                </div>
+                                <div class="name-user">
+                                  <strong>{review.username || "Unknown"}</strong>
+                                </div>
+                                
+                              </div>
+
+                              <div class="reviews">
+                                <div className="ratingNumbersReviews">
+                                  <ReactStars
+                                    count={5}
+                                    size={24}
+                                    activeColor="#ffd700"
+                                    value={review.star?.toFixed(1) || 0}
+                                    edit={false}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="client-comment">
+                              <p>{review.reviews}</p>
+                            </div>
+
+                                  <div class="container">
+                                        <div class="ads_sponsors">
+                                        {review.productPictures.length > 0 ? (
+                                        review.productPictures.map((image, index) => (
+                                        
+                                           <div><img src={generatePublicUrl(image.img)}/></div>
+                                        ))
+                                      ) : (
+                                        <div>No Review images available</div>
+                                      )}
+                                    </div>
+                                  </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+
+            
+             {/* {Review.map((review) => (
+               <Review key={review.id} reviews={review} />
+              ))}
+             */}
+              
+            
+
+
+
+            { 
+            /* yeah per krwa hai review show 
+            // function ProductReview({ review }) {
+            //     return (
+            //       <div key={review.id}>
+            //         <p>
+            //           <span style={{ fontSize: '12px', color: '#212121' }}>
+            //             {review.author}
+            //           </span>
+            //         </p>
+            //         <p>{review.content}</p>
+            //       </div>
+            //     );
+            //   }
+            
+            
+            */
+
+            }
+
+
+            {/* {isLogin && (
               <a
                 href={`https://wa.me/${product.productDetails.createdBy?.contactNumber}`}
                 target="_blank"
@@ -284,7 +397,7 @@ export const ProductDetailsPage = (props) => {
                   style={{ width: "3vw", height: "auto", cursor: "pointer" }}
                 />
               </a>
-            )}
+            )} */}
             
           </div>
         </div>

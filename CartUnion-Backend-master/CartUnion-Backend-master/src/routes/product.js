@@ -30,7 +30,7 @@ router.put("/product/getAllProductsdatamenu",getAllProductsdatamenu)
 router.delete("/product/deleteProductById",requireSignin,adminMiddleware,deleteProductById);
 router.post("/product/getProducts",requireSignin,adminMiddleware,getProducts);
 router.put('/product/:productId/updateProductStatus', requireSignin, adminMiddleware, updateProductStatus);
-router.put('/product/:rating', requireSignin, rating);
+router.put('/product/:rating', requireSignin, upload.array("productPicture"),rating);
 router.put('/product/:review',requireSignin, review);
 
 

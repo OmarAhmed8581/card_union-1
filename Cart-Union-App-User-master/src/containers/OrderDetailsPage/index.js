@@ -19,9 +19,10 @@ const OrderDetailsPage = (props) => {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.user.orderDetails);
   const product = useSelector((state) => state.product);
+  const auth = useSelector((state) => state.auth);
+  const [productPictures, setProductPictures] = useState([]);
   console.log('testing')
-  console.log(orderDetails)
-
+  
   var item  = orderDetails['items']
   var orderid  = orderDetails['_id']
   const [rating, setRating] = useState(0);
@@ -42,6 +43,13 @@ const OrderDetailsPage = (props) => {
       return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
     }
     return "";
+  };
+
+  const handleProductPicture = (e) => {
+    const selectedImage = e.target.files[0];
+    console.log("Selected Image:", selectedImage);
+    setProductPictures([...productPictures, selectedImage]);
+    console.log("Selected Image1:", productPictures);
   };
 
   const formatDate2 = (date) => {
@@ -70,17 +78,19 @@ const OrderDetailsPage = (props) => {
     dispatch(refundProduct(orderid, itemid,document.getElementById(itemid+"_return").value));
   }
   const onSubmit = () => {
-    // Dispatch the rateProduct and addReview actions with the orderId, rating, and review
-    
-    for (const items of item) {
-      // alert(items.productId._id)
-      dispatch(rateProduct(items.productId._id, rating,review));
-    }
-    alert("Review Submit")
+      console.log("productPictures"+productPictures)
+      for (const items of item) {
+      
+        dispatch(rateProduct(items.productId._id, rating,review,document.getElementById("fullName").innerText,productPictures));
+      }
+      // setProductPictures([]);
+      alert("Review Submit")
 
-    // Reset the rating and review inputs
-    // setRating(0);
-    setReview("");
+
+      // Reset the rating and review inputs
+      // setRating(0);
+      setReview("");
+   
   };
 
   if (!(orderDetails && orderDetails.address)) {
@@ -225,6 +235,16 @@ const OrderDetailsPage = (props) => {
                 placeholder="Write a review..."
                 value={review}
                 onChange={(e) => setReview(e.target.value)}
+              />
+              {productPictures.length > 0
+                  ? productPictures.map((pic, index) => (
+                      <div key={index}> {pic.name}</div>
+                    ))
+                : null}
+              <input
+                type="file"
+                name="productPicture"
+                onChange={handleProductPicture}
               />
               <button
                 class="form-control-sm"
