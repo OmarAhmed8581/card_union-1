@@ -7,6 +7,7 @@ import Card from "../../components/UI/Card";
  **/
 
 const PriceDetails = (props) => {
+  console.log(props)
   return (
     <Card headerLeft={"Price Details"} style={{ maxWidth: "380px" }}>
       <div

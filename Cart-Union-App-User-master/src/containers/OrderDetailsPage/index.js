@@ -75,7 +75,7 @@ const OrderDetailsPage = (props) => {
 
   const onReturn = (orderid , itemid)=>{
     alert("Refund Product")
-    dispatch(refundProduct(orderid, itemid,document.getElementById(itemid+"_return").value));
+    dispatch(refundProduct(orderid, itemid,document.getElementById(itemid+"_return").value,document.getElementById("fullName").innerText));
   }
   const onSubmit = () => {
       console.log("productPictures"+productPictures)

@@ -137,9 +137,9 @@ export const rateProduct = (prodId, star , review , username,productPicture) => 
   }
 };
 
-export const refundProduct = (orderid, itemid ,  refund) => async (dispatch) => {
+export const refundProduct = (orderid, itemid ,  refund,buyername) => async (dispatch) => {
   try {
-    const response = await axios.put(`/order/${orderid}`, {orderid ,  itemid , refund });
+    const response = await axios.put(`/order/${orderid}`, {orderid ,  itemid , refund,buyername});
     console.log(productConstants.REFUND_PRODUCT_SUCCESS)
     dispatch({
       type: productConstants.REFUND_PRODUCT_SUCCESS,

@@ -34,6 +34,10 @@ export const ProductDetailsPage = (props) => {
   console.log(Review)
   const isLogin = localStorage.getItem("token")
 
+
+  
+
+
   let params = useParams();
 
   useEffect(() => {
@@ -305,7 +309,7 @@ export const ProductDetailsPage = (props) => {
                     >
                       {Review.map((review) => (
                         <div class="testimonial-box-container" key={review._id}>
-                          <div class="testimonial-box">
+                          <div class="testimonial-box" style={{borderRight:"25px"}}>
                             <div class="box-top">
                               <div class="profile">
                                 <div class="profile-img">

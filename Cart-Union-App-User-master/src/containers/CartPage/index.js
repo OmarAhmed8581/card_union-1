@@ -20,11 +20,17 @@ export const CartPage = (props) => {
   const auth = useSelector((state) => state.auth);
   // const cartItems = cart.cartItems;
   const [cartItems, setCartItems] = useState(cart.cartItems);
+
   const dispatch = useDispatch();
+  var check = true
 
   useEffect(() => {
     setCartItems(cart.cartItems);
   }, [cart.cartItems]);
+
+  console.log('cartItems')
+  console.log(cartItems)
+
 
   useEffect(() => {
     if (auth.authenticate) {
@@ -32,8 +38,8 @@ export const CartPage = (props) => {
     }
   }, [auth.authenticate]);
 
+
   const onQuantityIncrement = (_id, qty) => {
-    //console.log({_id, qty});
     const { name, price, img ,discountOnQuantity ,discountPercentage,sellerId} = cartItems[_id];
     dispatch(addToCart({ _id, name, price, img ,discountOnQuantity ,discountPercentage,sellerId}, 1));
   };
@@ -42,10 +48,13 @@ export const CartPage = (props) => {
     const { name, price, img ,discountOnQuantity , discountPercentage , sellerId} = cartItems[_id];
     dispatch(addToCart({ _id, name, price, img ,discountOnQuantity , discountPercentage , sellerId}, -1));
   };
+  
 
   const onRemoveCartItem = (_id) => {
     dispatch(removeCartItem({ productId: _id }));
   };
+
+  
 
   if (props.onlyCartItems) {
     return (

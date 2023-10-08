@@ -35,6 +35,10 @@ const orderSchema = new mongoose.Schema(
           ref: "User",
           required: true,
         },
+        buyername:{
+          type:String,
+          default: ''
+        },
         productOrderStatus: {
           type: String,
           default: 'pending'

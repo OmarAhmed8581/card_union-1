@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addOrder, getAddress, getCartItems } from "../../actions";
+import { addOrder, getAddress, getCartItems , addToCart } from "../../actions";
 import Layout from "../../components/Layout";
 import {
   Anchor,
@@ -148,7 +148,6 @@ export const CheckoutPage = (props) => {
   };
 
   const onConfirmOrder = () => {
-    // console.log(cart.cartItems)
     const totalAmount = Object.keys(cart.cartItems).reduce(
       (totalPrice, key) => {
         const { price, qty ,discountOnQuantity} = cart.cartItems[key];
@@ -172,8 +171,6 @@ export const CheckoutPage = (props) => {
       paymentStatus: "pending",
       paymentType: "cod",
     };
-
-    // console.log(payload);
     dispatch(addOrder(payload));
     setConfirmOrder(true);
 
@@ -191,7 +188,6 @@ export const CheckoutPage = (props) => {
       edit: false,
     }));
     setAddress(address);
-    //user.address.length === 0 && setNewAddress(true);
   }, [user.address]);
 
   useEffect(() => {
@@ -244,7 +240,6 @@ export const CheckoutPage = (props) => {
               </>
             }
           />
-
           {/* AddressForm */}
           {confirmAddress ? null : newAddress ? (
             <AddressForm onSubmitForm={onAddressSubmit} onCancel={() => { }} />

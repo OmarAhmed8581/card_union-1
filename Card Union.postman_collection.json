@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "71e0803c-942d-4b67-8b50-38fd1d6c3006",
+		"name": "Card Union",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getcategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:2000/api/category/getcategory"
+			},
+			"response": []
+		},
+		{
+			"name": "product detail by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:2000/api/product/6433e787521e91f00c0dab0e"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Rating",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "review",
+							"value": "Great",
+							"type": "default"
+						},
+						{
+							"key": "prodId",
+							"value": "6433e787521e91f00c0dab0e",
+							"type": "default"
+						}
+					]
+				},
+				"url": "http://localhost:2000/api/product/rating"
+			},
+			"response": []
+		},
+		{
+			"name": "LoginActive",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userid\":\"4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:2000/api/user/getuserloginActive"
+			},
+			"response": []
+		},
+		{
+			"name": "updateloginActive",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userid\":\"6431f6c27e1f8123a25e5c95\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:2000/api/user/updateloginActive"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProductsdatamenu",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:2000/api/product/getAllProductsdatamenu"
+			},
+			"response": []
+		}
+	]
+}

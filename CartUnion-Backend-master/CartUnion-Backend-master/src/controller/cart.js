@@ -65,26 +65,6 @@ exports.addItemToCart = (req, res) => {
   });
 };
 
-// exports.addToCart = (req, res) => {
-//     const { cartItems } = req.body;
-//     if(cartItems){
-//        if(Object.keys(cartItems).length > 0){
-//            Cart.findOneAndUpdate({
-//                "user": req.user._id
-//            }, {
-//                "cartItems": cartItems
-//            }, {
-//                 upsert: true, new: true, setDefaultsOnInsert: true
-//            }, (error, cartItems) => {
-//                if(error) return res.status(400).json({ error });
-//                if(cartItems) res.status(201).json({ message: 'Added Successfully' });
-//           
-//        }
-//        //res.status(201).json({ cartItems });
-//     }else{
-//         //res.status(201).json({ req });
-//     }
-// }
 
 exports.getCartItems = (req, res) => {
   //const { user } = req.body.payload;

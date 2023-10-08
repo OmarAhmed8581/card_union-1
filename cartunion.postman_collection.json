@@ -1,0 +1,829 @@
+{
+	"info": {
+		"_postman_id": "601affe8-cc6e-4dbe-877f-a6af92296fe9",
+		"name": "cartunion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24357175"
+	},
+	"item": [
+		{
+			"name": "localhost:2000",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"firstName\":\"Hamza\",\r\n   \"lastName\":\"Gujjar\",\r\n    \"email\":\"hamzagujjar@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cartUnion userSignin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"nomanbaig@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cartUnion userSingnUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"Muhammad\",\r\n    \"lastName\":\"osama\",\r\n    \"email\":\"muhammadosama@gmail.com\",\r\n    \"password\":\"321654\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cartUnion adminSignup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"noman\",\r\n    \"lastName\":\"ahmed\",\r\n    \"email\":\"noman@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"super-admin\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cartUnion adminSignin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"muhammadhamza10040@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categoryapi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Men\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/category/create",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"category",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/category/getcategory",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"category",
+						"getcategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCategory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxMjlmMjU3YWVmYjFlYTUzYmMwNDkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAzNDk4MTksImV4cCI6MTY3MDM1MzQxOX0.gRmBBlloUHcMCD0GZa3egBYcplqWwFIktEuakwuzhUU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "vivo",
+							"type": "text"
+						},
+						{
+							"key": "parentId",
+							"value": "6378166d1cc83c74a3640715",
+							"type": "text"
+						},
+						{
+							"key": "categoryImage",
+							"type": "file",
+							"src": "oppo logo.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2000/api/category/create",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"category",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productCreated",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxMjlmMjU3YWVmYjFlYTUzYmMwNDkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzA5NDgwMDgsImV4cCI6MTY3MTAzNDQwOH0.ZX8zu4WQT0_WZVNpK5VhJyQozyPQ7AWXBpAVJTJM2S8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "productPicture",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "productPicture",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "productPicture",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "productPicture",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "category",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2000/api/product/create",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cartAPI",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzczNjg3Y2ZjZDViNTQ2M2YyMWVmYjUiLCJyb2xlIjoidXNlciIsImlhdCI6MTY2ODk4OTM4MSwiZXhwIjoxNjY4OTkyOTgxfQ.O820pD64YjvujGzgPfhncMFoTMc--WtzuqRdeioVTNI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cartItems\":{\r\n            \"product\":\"637817011cc83c74a3640718\",\r\n            \"quantity\":1,\r\n            \"price\":\"35000\"\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/user/cart/addtocart",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"user",
+						"cart",
+						"addtocart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignOut Api admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxMjlmMjU3YWVmYjFlYTUzYmMwNDkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NjkxOTM4MzAsImV4cCI6MTY2OTE5NzQzMH0.sbFWrCTPVZsNm9CpLY4JApXlRgKgSobazed5MoVjkrA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2000/api/admin/signout",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InitialData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:2000/api/initialdata",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"initialdata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "page/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Apple",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Apple is a famous Brand",
+							"type": "text"
+						},
+						{
+							"key": "banners",
+							"type": "file",
+							"src": "download.jfif"
+						},
+						{
+							"key": "banners",
+							"type": "file",
+							"src": "download (1).jfif"
+						},
+						{
+							"key": "products",
+							"type": "file",
+							"src": "iphone-14-series-300x300.jpg"
+						},
+						{
+							"key": "products",
+							"type": "file",
+							"src": "download (2).jfif"
+						},
+						{
+							"key": "category",
+							"value": "5sd4f65s4d65f4s6d554",
+							"type": "text"
+						},
+						{
+							"key": "createdby",
+							"value": "4df64d6546ds546fsd4sd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2000/api/page/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"page",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2000/api/products/Samsung",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2000/api/products/Samsung",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"products",
+						"Samsung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxMjliMmI4YzdiNzk2YWNmM2VhOGUiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3MjMyMjExNSwiZXhwIjoxNjcyNDA4NTE1fQ.-epzq-35QgtKxDhPOTFTfOsCITLju8fU-xBGifRiQys",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:2000/api/user/getCartItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"user",
+						"getCartItems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2000/api/user/address/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxMjliMmI4YzdiNzk2YWNmM2VhOGUiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3MjMyNDU0MSwiZXhwIjoxNjcyNDEwOTQxfQ.pzlkoyTIRlASYCxtz0rEJmT2-ocx7egvoGnR51_1_18",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payload\":{\r\n        \"address\":{\r\n            \"name\":\"Muhammad Hamza\",\r\n            \"mobileNumber\":\"03353456315\",\r\n            \"pinCode\":\"713325\",\r\n            \"locality\":\"Karachi Amin\",\r\n            \"address\":\"Block 8 A K.A.E.C.H.S\",\r\n            \"cityDistrictTown\":\"Jamshed Town\",\r\n            \"landmark\":\"Sitara Bakery\",\r\n            \"alternatePhone\":\"03132099189\",\r\n            \"addressType\":\"Home\"\r\n\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/user/address/create",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"user",
+						"address",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addOrder",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxMjlmMjU3YWVmYjFlYTUzYmMwNDkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzMwMDc1NDcsImV4cCI6MTY3MzA5Mzk0N30.xMcEAi6z3EdrydHh4QnDC3V4JbA3WMcbcR0kTd7HLno",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"637129b2b8c7b796acf3ea8e\",\r\n    \"type\":\"delivered\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2000/api/order/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"order",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2000/api/admin/signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"muhammadhamza123@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/admin/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"admin",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:2000/api//order/getCustomerOrders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE1YmQzMmNlZWU0MzMzZTBiZGQ2YmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODA5MDMwNjksImV4cCI6MTY4MDk4OTQ2OX0.DlDgYZoxhlbFSJalkLSZUaHTUeyHNzss9t5X_EQJUNU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2000/api//order/getCustomerOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"",
+						"order",
+						"getCustomerOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2000/api/product/getProducts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE1YmQzMmNlZWU0MzMzZTBiZGQ2YmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODA5MTY1NjIsImV4cCI6MTY4MTAwMjk2Mn0.rXH00uaaNfy5is6IH6GnJRZaSyYJF2iobhLDW6DnMpQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2000/api/product/getProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2000/api/product/getProducts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE1YmQzMmNlZWU0MzMzZTBiZGQ2YmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODA5MDMwNjksImV4cCI6MTY4MDk4OTQ2OX0.DlDgYZoxhlbFSJalkLSZUaHTUeyHNzss9t5X_EQJUNU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2000/api/product/getProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product",
+						"getProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:2000/api/product/updateProductStatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDE1YmQzMmNlZWU0MzMzZTBiZGQ2YmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODA5MTY1NjIsImV4cCI6MTY4MTAwMjk2Mn0.rXH00uaaNfy5is6IH6GnJRZaSyYJF2iobhLDW6DnMpQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2000/api/product/updateProductStatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product",
+						"updateProductStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:2000/api/product/rating",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearar eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDdkZWYyMTFjYzQ3M2ViMDA4MTIxMDUiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NTk3NDg0NywiZXhwIjoxNjg2MDYxMjQ3fQ.TFHgPqqkIic7IkEALrzimidYoqiVx4fLFVTiQZM1Id8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"star\":\"5\",\r\n    \"prodId\":\"643452d2521e91f00c0db786\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2000/api/product/rating",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"api",
+						"product",
+						"rating"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { generatePublicUrl } from "../../../urlConfig";
+import { useDispatch, useSelector } from "react-redux";
+import { removeCartItem} from "../../../actions";
 import "./style.css";
 
 /**
@@ -14,11 +16,12 @@ const CartItem = (props) => {
   const buynowValue = urlParams.get('name');
 
   // alert(buynowValue)
+  console.log('cartitem props')
+  console.log(props)
 
+  const dispatch = useDispatch();
 
-
-
-
+  
   let { _id, name, price, img , discountOnQuantity ,discountPercentage} = props.cartItem;
 
   let initialQty;
@@ -32,24 +35,16 @@ const CartItem = (props) => {
     discountOnQuantity = props.cartItem.discountOnQuantity;
   }
 
+  const onRemoveCartItem = (_id) => {
+    dispatch(removeCartItem({ productId: _id }));
+  };
+
   const [qty, setQty] = useState(initialQty);
-  
-  
-
-
-  // setQty(discountOnQuantity)
-  // alert(qty)
   console.log("qty")
   console.log(qty)
   const onQuantityIncrement = () => {
-
-
     if(buynowValue!='quotation'){
-
-      
       if(discountOnQuantity<=qty+1){  
-        // console.log(qty+1)
-        // console.log(discountOnQuantity)   
         setQty(qty + 1);
         props.onQuantityInc(_id, qty + 1);
       }
@@ -63,9 +58,7 @@ const CartItem = (props) => {
         props.onQuantityDec(_id, qty - 1);
       }
     }
-   
   };
-
   return (
     <div className="cartItemContainer">
       <div className="flexRow">
@@ -103,7 +96,7 @@ const CartItem = (props) => {
         <button className="cartActionBtn">save for later</button>
         <button
           className="cartActionBtn"
-          onClick={() => props.onRemoveCartItem(_id)}
+          onClick={() => onRemoveCartItem(_id)}
         >
           Remove
         </button>

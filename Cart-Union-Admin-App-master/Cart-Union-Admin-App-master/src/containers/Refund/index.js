@@ -54,26 +54,31 @@ export const Refunds = (props) => {
           
             for (const item of items) {
               
-              var { productId, payablePrice , sellerId ,returnItem } = item;
+              var { productId, payablePrice , sellerId ,returnItem,buyername } = item;
               if(returnItem != ""){
                 if(sellerId == seller_id){
+
                     for (const productItem of product['products']) {
                     const { _id, name ,} = productItem;
                     // console.log(productId)
                     if(productId!=null){
 
-                        // console.log(productId['_id'])
-                        // console.log(productId['_id'])
+                      
                         if (_id === productId['_id']) {
 
-                        
-                        
                         if (name in refund_dict){
-                          refund_dict[name].push(returnItem)
+                          var t = []
+                          t.push(returnItem)
+                          t.push(buyername)
+                          refund_dict[name].push(t)
+                      
                         }
                         else{
                           refund_dict[name]=[]
-                          refund_dict[name].push(returnItem)
+                          var t = []
+                          t.push(returnItem)
+                          t.push(buyername)
+                          refund_dict[name].push(t)
                         }
                         
                         
@@ -127,14 +132,17 @@ export const Refunds = (props) => {
                 <thead>
                 <tr>
                     <th>#</th>
+                    <th>Buyer Name</th>
                     <th>Refund Message</th>
+                    
                 </tr>
                 </thead>
                 <tbody id="table1">
                   {tableData.map((row, index) => (
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{row}</td>
+                      <td>{row[1] !== "" ? row[1] : 'unknown'}</td>
+                      <td>{row[0]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -226,7 +234,6 @@ export const Refunds = (props) => {
       
       }
       
-
       for (const orderItem of order['orders']) {
         const { items, orderStatus ,user } = orderItem;
         
@@ -258,10 +265,12 @@ export const Refunds = (props) => {
               break;
             }
           }
-          if(firstName!="" && lastName!=""){        
+          if(firstName!="" && lastName!=""){    
+            console.log('items')
+            console.log(items)    
             for (const item of items) {
-              const { productId, payablePrice , returnItem } = item;
-              if(returnItem != ""){
+              const { productId, payablePrice , returnItem , buyername } = item;
+              if(returnItem != "" && productId!=null){
                 console.log('returnItem')
                 console.log(returnItem)
                 console.log(item)
@@ -269,17 +278,25 @@ export const Refunds = (props) => {
                 console.log(product['products'])
                 for (const productItem of product['products']) {
                     const { _id, name } = productItem;
+                    // alert(productId['_id'])
                     if (productId['_id'] == productItem['_id']) {
                         console.log('product name')
                         console.log(name)
                         console.log(refund_dict)
 
                         if (name in refund_dict[firstName+" "+lastName]){
-                          refund_dict[firstName+" "+lastName][name].push(returnItem)
+                          var t = []
+                          t.push(returnItem)
+                          t.push(buyername)
+                          refund_dict[firstName+" "+lastName][name].push(t)
+                       
                         }
                         else{
                           refund_dict[firstName+" "+lastName][name]=[]
-                          refund_dict[firstName+" "+lastName][name].push(returnItem)     
+                          var t = []
+                          t.push(returnItem)
+                          t.push(buyername)
+                          refund_dict[firstName+" "+lastName][name].push(t)
                         }
 
                         if (name in product_dict[firstName+" "+lastName]){
@@ -326,6 +343,7 @@ export const Refunds = (props) => {
                 <thead>
                 <tr>
                     <th>#</th>
+                    <th>Buyer Name</th>
                     <th>Refund Message</th>
                 </tr>
                 </thead>
@@ -333,7 +351,8 @@ export const Refunds = (props) => {
                   {tableData.map((row, index) => (
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{row}</td>
+                      <td>{row[1] !== "" ? row[1] : 'unknown'}</td>
+                      <td>{row[0]}</td>
                     </tr>
                   ))}
                 </tbody>

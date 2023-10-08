@@ -41,6 +41,7 @@ exports.updaterefundOrders = async (req, res) => {
   console.log("updaterefundOrders")
   const itemId = req.body.itemid
   const refund = req.body.refund
+  const buyername = req.body.buyername
   const orderId = req.body.orderid
   try {
     const order = await Order.findById(orderId);
@@ -58,6 +59,7 @@ exports.updaterefundOrders = async (req, res) => {
     }
 
     itemToUpdate.returnItem = refund;
+    itemToUpdate.buyername = buyername;
     await order.save();
     console.log('Refund status updated successfully');
     res.status(200).json('Refund status updated successfully');
@@ -71,7 +73,7 @@ exports.getOrders = (req, res) => {
   console.log("getOrders")
   Order.find({ user: req.user._id })
     .select("_id paymentStatus paymentType orderStatus items")
-    .populate("items.productId", "_id name productPictures sellerId returnItem")
+    .populate("items.productId", "_id name productPictures sellerId returnItem buyername ")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {
@@ -85,7 +87,7 @@ exports.getAllOrders = (req, res) => {
   console.log("getAllOrders");
   Order.find()
     .select("_id user paymentStatus paymentType orderStatus items") // Select specific fields to retrieve
-    .populate("items.productId", "_id name productPictures sellerId returnItem")
+    .populate("items.productId", "_id name productPictures sellerId returnItem buyername")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {
@@ -97,7 +99,7 @@ exports.getAllOrders = (req, res) => {
 exports.getOrders1 = (req, res) => {
   Order.find({ user: req.user._id })
     .select("_id paymentStatus paymentType orderStatus items")
-    .populate("items.productId", "_id name productPictures sellerId returnItem")
+    .populate("items.productId", "_id name productPictures sellerId returnItem buyername")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {
