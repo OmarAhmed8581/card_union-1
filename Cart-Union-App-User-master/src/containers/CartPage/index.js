@@ -111,6 +111,7 @@ export const CartPage = (props) => {
 
         <PriceDetails
           totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
+            // cart.cartItems[key].qty =  cart.cartItems[key].discountOnQuantity
             return qty + cart.cartItems[key].qty;
           }, 0)}
 

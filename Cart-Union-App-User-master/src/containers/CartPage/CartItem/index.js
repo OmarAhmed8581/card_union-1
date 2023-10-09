@@ -20,7 +20,6 @@ const CartItem = (props) => {
   console.log(props)
 
   const dispatch = useDispatch();
-
   
   let { _id, name, price, img , discountOnQuantity ,discountPercentage} = props.cartItem;
 

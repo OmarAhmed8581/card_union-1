@@ -23,7 +23,7 @@ const getCartItems = () => {
   };
 };
 
-export const addToCart = (product, newQty = 1) => {
+export const addToCart = (product, newQty) => {
   return async (dispatch) => {
     const {
       cart: { cartItems },
@@ -32,8 +32,8 @@ export const addToCart = (product, newQty = 1) => {
     
 
     const qty = cartItems[product._id]
-      ? parseInt(cartItems[product._id].qty + 1)
-      : 1;
+      ? parseInt(cartItems[product._id].qty + newQty)
+      : newQty;
     cartItems[product._id] = {
       ...product,
       qty,

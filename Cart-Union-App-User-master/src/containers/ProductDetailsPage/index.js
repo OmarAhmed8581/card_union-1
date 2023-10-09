@@ -27,7 +27,10 @@ export const ProductDetailsPage = (props) => {
   const history = useNavigate();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
+  const cart = useSelector((state) => state.cart);
 
+  console.log('cart')
+  console.log(cart)
   console.log("testing product")
   console.log(product['productDetails']['review'])
   var Review = product['productDetails']['review']
@@ -155,12 +158,13 @@ export const ProductDetailsPage = (props) => {
                 }}
                 icon={<AiFillThunderbolt />}
                 onClick={() => {
-                  const { _id, name, price, createdBy } =
+                  const { _id, name, price, createdBy ,discountOnQuantity  , discountPercentage  } =
                     product.productDetails;
                   const img = product.productDetails.productPictures[0].img;
-                  dispatch(
-                    addToCart({ _id, name, price, img, sellerId: createdBy })
-                  );
+                  // dispatch(
+                  //   addToCart({ _id, name, price, img, sellerId: createdBy })
+                  // );
+                  dispatch(addToCart({ _id, name, price, img ,discountOnQuantity ,discountPercentage,sellerId:createdBy},discountOnQuantity));
                   history("/checkout?name=buynow");
                 }}
               />

@@ -37,14 +37,7 @@ exports.addItemToCart = (req, res) => {
           };
         }
         promiseArray.push(runUpdate(condition, update));
-        //Cart.findOneAndUpdate(condition, update, { new: true }).exec();
-        // .exec((error, _cart) => {
-        //     if(error) return res.status(400).json({ error });
-        //     if(_cart){
-        //         //return res.status(201).json({ cart: _cart });
-        //         updateCount++;
-        //     }
-        // })
+
       });
       Promise.all(promiseArray)
         .then((response) => res.status(201).json({ response }))
