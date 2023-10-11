@@ -140,13 +140,12 @@ export const ProductDetailsPage = (props) => {
                 }}
                 icon={<IoMdCart />}
                 onClick={() => {
-                  const { _id, name, price, createdBy } =
+                  const { _id, name, price, createdBy  ,discountOnQuantity  , discountPercentage } =
                     product.productDetails;
                   const img = product.productDetails.productPictures[0].img;
-                  dispatch(
-                    addToCart({ _id, name, price, img, sellerId: createdBy })
-                  );
-                  history("/cart");
+                  dispatch(addToCart({ _id, name, price, img ,discountOnQuantity ,discountPercentage,sellerId:createdBy},discountOnQuantity));
+               
+                  history("/cart?name=cart");
                 }}
               />
               <MaterialButton

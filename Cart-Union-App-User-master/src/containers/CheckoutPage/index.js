@@ -148,13 +148,21 @@ export const CheckoutPage = (props) => {
   };
 
   const onConfirmOrder = () => {
-    const totalAmount = Object.keys(cart.cartItems).reduce(
+    var totalAmount = Object.keys(cart.cartItems).reduce(
       (totalPrice, key) => {
         const { price, qty ,discountOnQuantity} = cart.cartItems[key];
         return qty >= discountOnQuantity ? totalPrice + price*qty-(price*qty)*discountOnQuantity/100 : totalPrice + price * qty ;
       },
       0
     );
+
+    totalAmount = totalAmount + (totalAmount / 100) * 5
+
+    // alert(totalAmount)
+    
+
+   
+    
     const items = Object.keys(cart.cartItems).map((key) => ({
       productId: key,
       payablePrice: cart.cartItems[key].price,

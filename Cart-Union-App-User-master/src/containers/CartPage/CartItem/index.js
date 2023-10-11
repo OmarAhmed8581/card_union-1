@@ -29,7 +29,12 @@ const CartItem = (props) => {
   if (buynowValue === 'quotation') {
     initialQty = 1;
     discountOnQuantity = 1;
-  } else {
+  }
+  else if(buynowValue === 'cart'){
+    initialQty = props.cartItem.discountOnQuantity;
+    discountOnQuantity = props.cartItem.discountOnQuantity;
+  }
+  else {
     initialQty = props.cartItem.discountOnQuantity;
     discountOnQuantity = props.cartItem.discountOnQuantity;
   }
@@ -42,6 +47,7 @@ const CartItem = (props) => {
   console.log("qty")
   console.log(qty)
   const onQuantityIncrement = () => {
+  
     if(buynowValue!='quotation'){
       if(discountOnQuantity<=qty+1){  
         setQty(qty + 1);
