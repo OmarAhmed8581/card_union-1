@@ -123,6 +123,7 @@ export const Sales = (props) => {
       console.log(order)
       console.log(product)
       console.log(user)
+      
       var userdata = user['users']
       var product_dict={}
 
@@ -133,6 +134,7 @@ export const Sales = (props) => {
           // alert(orderStatus[3]['isCompleted'])
           var firstName="";
           var lastName="";
+          console.log(items)
           for(var i=0;i<userdata.length;i++){
             if(userdata[i]['_id']==user){
               firstName = userdata[i]['firstName']
@@ -150,13 +152,16 @@ export const Sales = (props) => {
             }
           }
 
-          if(firstName!="" && lastName!=""){        
+          if(firstName!="" && lastName!=""){   
+           
             for (const item of items) {
-              const { productId, payablePrice } = item;
+              const { productId, payablePrice,sellerId } = item;
               for (const productItem of product['products']) {
                 const { _id, name } = productItem;
                 if (_id === productItem['_id']) {
+                  
                   if (name in product_dict[firstName+" "+lastName]){
+                      
                       product_dict[firstName+" "+lastName][name][0]+=1
                       product_dict[firstName+" "+lastName][name][1]+=item['payablePrice']
                   
